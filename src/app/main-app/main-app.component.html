@@ -1,0 +1,70 @@
+<div class="main_app">
+  <h1 class="text">To-Do List</h1>
+  <p class="text">Enter text ino the input field to add items to your list.</p>
+  <p class="text">Click the "X" to remove the item from your list</p>
+  <p class="text">Click the item to mark it as complete.</p>
+  <div class="input_container">
+    <div>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="  New to-do"
+        [(ngModel)]="name"
+        value="name"
+        (keydown.enter)="addenter()"
+      />
+
+      <p class="err" *ngIf="err">{{ err }}</p>
+    </div>
+
+    <span (click)="add()"
+      ><i class="bi bi-plus-circle" style="font-size: 1.5rem; color: blue"></i
+    ></span>
+  </div>
+  <hr />
+  <div class="todo_box">
+    <div class="left_box">
+      <h4>To Do</h4>
+      <ul
+        *ngFor="let item of listtodo"
+        class="not_done"
+        (click)="changelist(item.id)"
+      >
+        <li>
+          <div class="left">
+            <p>{{ item.name }}</p>
+          </div>
+          <div class="right">
+            <span (click)="removelist(item.id)"
+              ><i class="bi bi-eraser"></i
+            ></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="right_box">
+      <h4>Done</h4>
+      <ul *ngFor="let item of listdone" class="done" (click)="recover(item.id)">
+        <li>
+          <div class="left">
+            <p
+              *ngIf="item.completed"
+              [style.text-decoration]="'line-through'"
+              [style.background]="'lightblue'"
+            >
+              {{ item.name }}
+            </p>
+            <p *ngIf="!item.completed" [style.text-decoration]="'line-through'">
+              {{ item.name }}
+            </p>
+          </div>
+          <div class="right">
+            <span (click)="removedone(item.id)"
+              ><i class="bi bi-eraser"></i
+            ></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

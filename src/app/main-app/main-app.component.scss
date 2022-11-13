@@ -1,0 +1,104 @@
+.main_app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  .text {
+    text-align: center;
+  }
+  .input_container {
+    .form-control {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      border: 2px solid rgb(177, 177, 177);
+      outline: none;
+      background: transparent;
+      border-radius: 10px;
+    }
+  }
+  .todo_box {
+    margin-top: 0.5rem;
+    display: flex;
+    .left_box {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .not_done {
+        background-color: rgb(255, 115, 0);
+        .left {
+          display: flex;
+          align-items: center;
+          padding-left: 1rem;
+        }
+        .right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.2rem;
+          padding-right: 0.5rem;
+        }
+        span {
+          height: unset;
+        }
+      }
+    }
+    .right_box {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .done {
+        background-color: lightgreen;
+        .left {
+          display: flex;
+          align-items: center;
+          padding-left: 1rem;
+        }
+        .right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.2rem;
+          padding-right: 0.5rem;
+        }
+        span {
+          height: unset;
+        }
+      }
+    }
+  }
+  input {
+    outline: none;
+    font-size: calc(1rem * 0.8);
+    padding: 0.2rem 0.5rem;
+    border: none;
+    opacity: 0.7;
+  }
+
+  input:focus {
+    border: none;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+
+  .input_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .err {
+      margin-top: 0.1rem;
+      color: red;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
